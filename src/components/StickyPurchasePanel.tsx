@@ -24,9 +24,12 @@ export const StickyPurchasePanel: React.FC<StickyPurchasePanelProps> = ({
     addToCart(product, selectedVariant, quantity, purchaseType);
   };
 
-  const activePrice = purchaseType === 'subscription' 
-    ? selectedVariant.subscriptionPrice 
-    : selectedVariant.price;
+  const convertPrice = (usd: number) => Math.round(usd * 30);
+  const activePrice = convertPrice(
+    purchaseType === 'subscription' 
+      ? selectedVariant.subscriptionPrice 
+      : selectedVariant.price
+  );
 
   return (
     <AnimatePresence>
@@ -42,13 +45,13 @@ export const StickyPurchasePanel: React.FC<StickyPurchasePanelProps> = ({
             
             {/* Left: Info */}
             <div className="flex flex-col">
-              <span className="text-[10px] uppercase tracking-wider text-text-muted font-semibold">
+              <span className="text-[10px] uppercase tracking-wider text-text-muted font-semibold font-sans">
                 Body Cafe Co.
               </span>
               <h4 className="text-xs md:text-sm font-logo tracking-editorial text-text-dark uppercase">
                 {product.name}
               </h4>
-              <p className="text-[10px] text-text-secondary font-semibold uppercase mt-0.5 line-clamp-1">
+              <p className="text-[10px] text-text-secondary font-semibold uppercase mt-0.5 line-clamp-1 font-sans">
                 {selectedVariant.name} — {purchaseType === 'subscription' ? 'Subscribe' : 'One-Time'}
               </p>
             </div>
@@ -56,16 +59,16 @@ export const StickyPurchasePanel: React.FC<StickyPurchasePanelProps> = ({
             {/* Right: Buy Button & Price */}
             <div className="flex items-center gap-6">
               <div className="text-right hidden sm:block">
-                <span className="text-[9px] uppercase tracking-wider text-text-muted block">Total Price</span>
-                <span className="text-sm md:text-base font-semibold text-text-dark">
-                  ${(activePrice * quantity).toFixed(2)}
+                <span className="text-[9px] uppercase tracking-wider text-text-muted block font-sans">Total Price</span>
+                <span className="text-sm md:text-base font-semibold text-text-dark font-sans">
+                  ₹{(activePrice * quantity).toLocaleString('en-IN')}
                 </span>
               </div>
               <button
                 onClick={handleAdd}
-                className="px-6 py-3.5 text-xs font-bold uppercase tracking-superwide bg-text-dark hover:bg-black text-white transition-colors"
+                className="px-6 py-3.5 text-xs font-bold uppercase tracking-superwide bg-[#B51E2E] hover:bg-[#911623] text-white transition-colors shadow-sm font-sans"
               >
-                Add to Bag — ${(activePrice * quantity).toFixed(2)}
+                Add to Bag — ₹{(activePrice * quantity).toLocaleString('en-IN')}
               </button>
             </div>
 

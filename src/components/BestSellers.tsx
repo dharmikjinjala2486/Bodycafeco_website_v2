@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { products } from '../data/products';
-import { ProductCanvas } from './ProductCanvas';
+import { getProductImage } from '../assets/productImages';
 import { useCart } from '../context/CartContext';
 import type { Product, ProductVariant } from '../types';
 
@@ -28,16 +28,22 @@ const BestSellerCard: React.FC<BestSellerCardProps> = ({ product }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Product Image Packshot Mockup */}
-      <div className="w-full flex justify-center items-center rounded-xl bg-transparent">
-        <ProductCanvas
-          name={product.name}
-          accentHex={product.accentHex}
-          pantone={product.pantone}
-          categoryLabel={product.categoryLabel}
-          size="lg"
-          active={isHovered}
-        />
+      {/* Product Image */}
+      <div className="w-full flex justify-center items-center bg-[#F8F7F4] rounded-xl aspect-square overflow-hidden">
+        {(() => {
+          const src = getProductImage(product.id);
+          return src ? (
+            <img
+              src={src}
+              alt={product.name}
+              className={`w-full h-full object-contain p-6 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isHovered ? 'scale-105' : 'scale-100'}`}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-xs uppercase tracking-wider text-text-muted">{product.name}</span>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Info Container to push buttons down and keep alignment */}

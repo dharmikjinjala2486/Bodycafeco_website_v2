@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronDown } from 'lucide-react';
 import { products } from '../data/products';
-import { ProductCanvas } from './ProductCanvas';
+import { getProductImage } from '../assets/productImages';
 import { useCart } from '../context/CartContext';
 import type { Product, ProductVariant } from '../types';
 
@@ -44,15 +44,21 @@ const BenefitProductCard: React.FC<BenefitProductCardProps> = ({ product }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image centered */}
-      <div className="w-full flex justify-center items-center bg-transparent py-4">
-        <ProductCanvas
-          name={product.name}
-          accentHex={product.accentHex}
-          pantone={product.pantone}
-          categoryLabel={product.categoryLabel}
-          size="lg"
-          active={isHovered}
-        />
+      <div className="w-full flex justify-center items-center bg-[#F8F7F4] aspect-square overflow-hidden rounded-none">
+        {(() => {
+          const src = getProductImage(product.id);
+          return src ? (
+            <img
+              src={src}
+              alt={product.name}
+              className={`w-full h-full object-contain p-6 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isHovered ? 'scale-105' : 'scale-100'}`}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center py-12">
+              <span className="text-xs uppercase tracking-wider text-text-muted">{product.name}</span>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Info Content Area */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ArrowRight } from 'lucide-react';
 import type { Product } from '../types';
-import { ProductCanvas } from './ProductCanvas';
+import { getProductImage } from '../assets/productImages';
 import { useCart } from '../context/CartContext';
 
 interface ProductCardProps {
@@ -30,15 +30,24 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Product Image Canvas */}
-      <div className="relative overflow-hidden aspect-[4/5] w-full border-b border-border-light">
-        <ProductCanvas
-          name={product.name}
-          accentHex={product.accentHex}
-          pantone={product.pantone}
-          categoryLabel={product.categoryLabel}
-          active={isHovered}
-        />
+      {/* Product Image */}
+      <div className="relative overflow-hidden aspect-[4/5] w-full border-b border-border-light bg-[#F8F7F4]">
+        {(() => {
+          const src = getProductImage(product.id);
+          return src ? (
+            <img
+              src={src}
+              alt={product.name}
+              className={`w-full h-full object-contain p-6 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isHovered ? 'scale-105' : 'scale-100'
+              }`}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-[#F0EFEA]">
+              <span className="text-xs uppercase tracking-wider text-text-muted font-semibold">{product.name}</span>
+            </div>
+          );
+        })()}
         
         {/* Floating Tag */}
         <span 

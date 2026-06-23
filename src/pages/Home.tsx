@@ -60,6 +60,7 @@ const CategoryItem: React.FC<{ id: string; displayName: string }> = ({ id, displ
           pantone={product.pantone}
           categoryLabel={product.categoryLabel}
           isHovered={isHovered}
+          productId={product.id}
         />
       </div>
       <h3 className="font-sans font-semibold text-[#222222] group-hover:text-black transition-colors duration-300 text-base md:text-lg tracking-editorial">

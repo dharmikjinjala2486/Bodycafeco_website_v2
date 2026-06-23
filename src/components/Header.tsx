@@ -4,7 +4,7 @@ import { ShoppingBag, Menu, X, ArrowRight, User, Search, ChevronDown, ChevronUp 
 import { useCart } from '../context/CartContext';
 import { products } from '../data/products';
 import { AnimatePresence, motion } from 'framer-motion';
-import ProductCanvas from './ProductCanvas';
+import { getProductImage } from '../assets/productImages';
 
 export const Header: React.FC = () => {
   const { toggleCart, cartCount } = useCart();
@@ -414,14 +414,15 @@ export const Header: React.FC = () => {
                           className="group flex flex-col h-full text-left"
                         >
                           <div className="w-full aspect-[3.2/4] bg-white border border-[#E5E5E5] overflow-hidden flex items-center justify-center relative">
-                            <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
-                              <ProductCanvas
-                                name={p.name}
-                                accentHex={p.accentHex}
-                                pantone={p.pantone}
-                                categoryLabel={p.categoryLabel}
-                                size="sm"
-                              />
+                            <div className="w-full h-full transition-transform duration-500 group-hover:scale-105 flex items-center justify-center bg-[#F8F7F4]">
+                            {(() => {
+                              const src = getProductImage(p.id);
+                              return src ? (
+                                <img src={src} alt={p.name} className="w-full h-full object-contain p-4" />
+                              ) : (
+                                <span className="text-[10px] uppercase text-text-muted">{p.name}</span>
+                              );
+                            })()}
                             </div>
                           </div>
                           <span className="mt-3 text-xs md:text-sm uppercase tracking-wider font-semibold text-text-dark group-hover:opacity-75 transition-opacity text-left">
