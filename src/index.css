@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-soft text-text-body font-sans overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-brand-creatine text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-dark font-medium tracking-editorial;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #FAFAF8;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #E5E5E5;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #CCCCCC;
+  }
+}
+
+@layer components {
+  /* Premium Typography Helper Classes */
+  .font-logo {
+    font-family: 'LEMON MILK', 'Montserrat', 'Syne', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  .text-editorial-h1 {
+    @apply text-4xl font-light tracking-tight text-text-dark leading-[1.05] sm:text-5xl md:text-6xl xl:text-7xl;
+  }
+
+  .text-editorial-h2 {
+    @apply text-3xl font-light tracking-tight text-text-dark leading-[1.1] sm:text-4xl md:text-5xl;
+  }
+
+  /* Refined UI Utilities */
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .dark-glassmorphism {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Custom visual styles for supplementary elements */
+  .product-card-shadow {
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .product-card-shadow:hover {
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  /* Premium Purple Gradient & Glows */
+  .bg-premium-purple-gradient {
+    background: linear-gradient(135deg, #1A0D30 0%, #090314 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Interactive Pink Pill CTA */
+  .btn-pink-gradient {
+    background: linear-gradient(135deg, #FF3D8B 0%, #D81B9C 100%);
+    box-shadow: 0 4px 20px rgba(255, 61, 139, 0.4), 0 0 15px rgba(255, 61, 139, 0.1) inset;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-pink-gradient:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(255, 61, 139, 0.65), 0 0 25px rgba(216, 27, 156, 0.3) inset;
+  }
+
+  .btn-pink-gradient:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
+  /* Premium Text Shadows */
+  .premium-text-glow {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Ambient Flow Animations */
+  @keyframes slow-bg-flow-1 {
+    0% {
+      transform: translate(0px, 0px) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(40px, -30px) rotate(90deg) scale(1.15);
+    }
+    100% {
+      transform: translate(0px, 0px) rotate(360deg) scale(1);
+    }
+  }
+
+  @keyframes slow-bg-flow-2 {
+    0% {
+      transform: translate(0px, 0px) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50px, 40px) rotate(-120deg) scale(1.25);
+    }
+    100% {
+      transform: translate(0px, 0px) rotate(-360deg) scale(1);
+    }
+  }
+
+  @keyframes wave-flow {
+    0% {
+      transform: translateY(0) scaleY(1) skewX(0deg);
+    }
+    50% {
+      transform: translateY(-12px) scaleY(1.06) skewX(2deg);
+    }
+    100% {
+      transform: translateY(0) scaleY(1) skewX(0deg);
+    }
+  }
+
+  .animate-slow-flow-1 {
+    animation: slow-bg-flow-1 25s infinite ease-in-out;
+  }
+
+  .animate-slow-flow-2 {
+    animation: slow-bg-flow-2 30s infinite ease-in-out;
+  }
+
+  .animate-wave-flow {
+    animation: wave-flow 15s infinite ease-in-out;
+  }
+}
