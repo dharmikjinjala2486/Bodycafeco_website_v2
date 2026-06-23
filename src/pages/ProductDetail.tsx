@@ -11,6 +11,7 @@ import SupplementQuizSection from '../components/SupplementQuizSection';
 import CustomersAlsoBought from '../components/CustomersAlsoBought';
 import PdpBlogSection from '../components/PdpBlogSection';
 import PdpInstagramSection from '../components/PdpInstagramSection';
+import CustomerReviews from '../components/CustomerReviews';
 
 // Lifestyle images for accordions
 import promiseAbsorption from '../assets/promise_absorption.png';
@@ -1193,6 +1194,9 @@ export const ProductDetail: React.FC = () => {
 
       {/* 7. Instagram / Social Gallery */}
       <PdpInstagramSection />
+
+      {/* 8. Customer Reviews Section */}
+      <CustomerReviews />
 
       {/* Lightbox Modal */}
       <AnimatePresence>

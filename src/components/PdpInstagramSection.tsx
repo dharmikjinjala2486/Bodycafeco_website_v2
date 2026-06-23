@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-// Existing instagram assets
+// Instagram gallery assets
 import instagram1 from '../assets/instagram_1.png';
 import instagram2 from '../assets/instagram_2.png';
 import instagram3 from '../assets/instagram_3.png';
@@ -10,12 +10,12 @@ import instagram4 from '../assets/instagram_4.png';
 import instagram5 from '../assets/instagram_5.png';
 import instagram6 from '../assets/instagram_6.png';
 
-// New PDP-specific lifestyle assets
-import instaMorning from '../assets/insta_morning_ritual.png';
-import instaStack from '../assets/insta_supplement_stack.png';
-import instaDesk from '../assets/insta_desk_wellness.png';
-import instaSmoothie from '../assets/insta_smoothie_bowl.png';
-import instaGym from '../assets/insta_gym_performance.png';
+// Additional lifestyle assets
+import blogCreatine   from '../assets/blog_creatine.png';
+import blogOmega3     from '../assets/blog_omega3.png';
+import blogVitaminD3  from '../assets/blog_vitamind3k2.png';
+import promiseAbsorption from '../assets/promise_absorption.png';
+import quizLifestyle  from '../assets/quiz_lifestyle.png';
 
 interface GalleryImage {
   src: string;
@@ -23,17 +23,17 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { src: instaGym,     alt: 'Gym bag with creatine supplement and fitness gear' },
-  { src: instagram1,   alt: 'Omega-3 supplement in daily routine' },
-  { src: instaSmoothie,alt: 'Acai smoothie bowl with supplement stack' },
-  { src: instagram2,   alt: 'Creatine canister on kitchen counter' },
-  { src: instaDesk,    alt: 'Minimal workspace with supplement and wellness journal' },
-  { src: instagram3,   alt: 'Vitamin D3 K2 tray lifestyle' },
-  { src: instaStack,   alt: 'Premium supplement stack flat lay' },
-  { src: instagram4,   alt: 'Healthy fitness meal with supplement' },
-  { src: instaMorning, alt: 'Morning wellness ritual flat lay' },
-  { src: instagram5,   alt: 'Supplement bottle beside gym water bottle' },
-  { src: instagram6,   alt: 'Healthy fruit breakfast bowl' },
+  { src: instagram1,       alt: 'Omega-3 supplement in daily routine' },
+  { src: blogCreatine,     alt: 'Creatine supplement performance lifestyle' },
+  { src: instagram2,       alt: 'Creatine canister on kitchen counter' },
+  { src: blogOmega3,       alt: 'Omega-3 health and wellness lifestyle' },
+  { src: instagram3,       alt: 'Vitamin D3 K2 tray lifestyle' },
+  { src: promiseAbsorption,alt: 'Supplement absorption and bioavailability lifestyle' },
+  { src: instagram4,       alt: 'Healthy fitness meal with supplement' },
+  { src: blogVitaminD3,    alt: 'Vitamin D3 K2 daily wellness combination' },
+  { src: instagram5,       alt: 'Supplement bottle beside gym water bottle' },
+  { src: quizLifestyle,    alt: 'Daily wellness ritual lifestyle' },
+  { src: instagram6,       alt: 'Healthy fruit breakfast bowl wellness' },
 ];
 
 export const PdpInstagramSection: React.FC = () => {

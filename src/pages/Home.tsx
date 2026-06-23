@@ -132,21 +132,21 @@ export const Home: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col pt-0">
-      
+
       {/* HERO SECTION */}
       <div className="flex flex-col lg:flex-row w-full min-h-[80vh] lg:min-h-[85vh] xl:min-h-[90vh] bg-bg-soft overflow-hidden select-none">
-        
+
         {/* LEFT COLUMN: Clean Lifestyle/Product Image */}
         <div className="w-full lg:w-1/2 min-h-[40vh] sm:min-h-[50vh] lg:min-h-[80vh] xl:min-h-[90vh] bg-[#F3F3F3] overflow-hidden relative flex items-center justify-center">
-          <motion.div 
+          <motion.div
             className="w-full h-full"
             initial="hidden"
             animate="visible"
             variants={imageVariants}
           >
-            <img 
-              src={menopauseImage} 
-              alt="Body Cafe Co. Menopause Relief Supplement" 
+            <img
+              src={menopauseImage}
+              alt="Body Cafe Co. Menopause Relief Supplement"
               className="w-full h-full object-cover select-none pointer-events-none"
             />
           </motion.div>
@@ -154,24 +154,24 @@ export const Home: React.FC = () => {
 
         {/* RIGHT COLUMN: Premium Deep Purple Gradient Layout */}
         <div className="w-full lg:w-1/2 min-h-[50vh] sm:min-h-[60vh] lg:min-h-[80vh] xl:min-h-[90vh] bg-premium-purple-gradient text-white flex flex-col justify-center items-center px-6 sm:px-12 md:px-16 xl:px-24 py-16 lg:py-24 relative select-none">
-          
+
           {/* Subtle Radial Glow & Wave Patterns */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
             {/* Ambient Radial Glow Blobs */}
             <div className="absolute -top-[30%] -right-[20%] w-[85%] h-[85%] rounded-full bg-gradient-to-br from-[#8B5CF6]/20 to-transparent blur-[130px] animate-slow-flow-1" />
             <div className="absolute -bottom-[20%] -left-[10%] w-[75%] h-[75%] rounded-full bg-gradient-to-tr from-[#EC4899]/15 to-transparent blur-[110px] animate-slow-flow-2" />
             <div className="absolute top-[30%] left-[20%] w-[55%] h-[55%] rounded-full bg-[#A855F7]/10 blur-[120px] animate-slow-flow-1" style={{ animationDelay: '-6s' }} />
-            
+
             {/* Flowing Wave Overlay */}
-            <svg 
-              className="absolute bottom-0 left-0 w-full h-[60%] opacity-15 transform translate-y-12 animate-wave-flow" 
-              viewBox="0 0 1440 600" 
-              fill="none" 
+            <svg
+              className="absolute bottom-0 left-0 w-full h-[60%] opacity-15 transform translate-y-12 animate-wave-flow"
+              viewBox="0 0 1440 600"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
             >
-              <path 
-                d="M0,288L80,266.7C160,245,320,203,480,202.7C640,203,800,245,960,256C1120,267,1280,245,1360,234.7L1440,224L1440,600L1360,600C1280,600,1120,600,960,600C800,600,640,600,480,600C320,600,160,600,80,600L0,600Z" 
+              <path
+                d="M0,288L80,266.7C160,245,320,203,480,202.7C640,203,800,245,960,256C1120,267,1280,245,1360,234.7L1440,224L1440,600L1360,600C1280,600,1120,600,960,600C800,600,640,600,480,600C320,600,160,600,80,600L0,600Z"
                 fill="url(#waveGrad)"
               />
               <defs>
@@ -185,39 +185,39 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Center-Aligned Content Container */}
-          <motion.div 
+          <motion.div
             className="w-full max-w-lg text-center flex flex-col items-center justify-center z-10 space-y-6 sm:space-y-8"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
           >
             {/* Eyebrow Heading: "Introducing" */}
-            <motion.div 
-              variants={itemVariants} 
+            <motion.div
+              variants={itemVariants}
               className="text-lg sm:text-xl md:text-2xl font-bold italic tracking-wide text-white select-none"
             >
               Introducing
             </motion.div>
 
             {/* Main Heading: "Menopause Relief" */}
-            <motion.h1 
-              variants={itemVariants} 
+            <motion.h1
+              variants={itemVariants}
               className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] premium-text-glow select-none"
             >
-              Menopause<br /> Relief
+              Creatine<br /> Monohydrate
             </motion.h1>
 
             {/* Description Details */}
-            <motion.p 
-              variants={itemVariants} 
+            <motion.p
+              variants={itemVariants}
               className="text-base sm:text-lg md:text-xl font-medium text-white/90 leading-relaxed max-w-md select-none"
             >
-              Exclusive, Hormone-Free<br />& Estrogen-Free Combination<br />with Results in 4 weeks
+              Pure Creapure® Creatine<br />for Strength, Power & Recovery<br />Visible Performance Support Daily
             </motion.p>
 
             {/* CTA Button: Pill pink gradient */}
-            <motion.div 
-              variants={itemVariants} 
+            <motion.div
+              variants={itemVariants}
               className="pt-4 sm:pt-6 w-full flex justify-center"
             >
               <Link
@@ -243,8 +243,8 @@ export const Home: React.FC = () => {
         <div className="w-full px-6 md:px-12 xl:px-24">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-16 md:gap-x-12 lg:gap-x-16 xl:gap-x-20 justify-items-center items-start max-w-[1600px] mx-auto">
             {DISPLAY_PRODUCT_IDS.map((item) => (
-              <motion.div 
-                key={item.id} 
+              <motion.div
+                key={item.id}
                 variants={categoryItemVariants}
                 className="w-full flex justify-center"
               >
@@ -272,11 +272,11 @@ export const Home: React.FC = () => {
       >
         <div className="w-full px-6 md:px-12 xl:px-24 max-w-7xl mx-auto">
           {/* Section Heading */}
-          <motion.h2 
+          <motion.h2
             variants={{
               hidden: { opacity: 0, y: 30 },
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
                 transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
               }
@@ -289,25 +289,24 @@ export const Home: React.FC = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-x-12 lg:gap-x-16 justify-items-center">
             {PROMISE_CARDS.map((card, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
-                  visible: { 
-                    opacity: 1, 
+                  visible: {
+                    opacity: 1,
                     y: 0,
                     transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
                   }
                 }}
-                className={`flex flex-col items-center text-center group cursor-pointer transition-transform duration-500 ease-[0.16,1,0.3,1] hover:-translate-y-2 w-full ${
-                  idx === 2 ? 'md:col-span-2 md:w-1/2 md:mx-auto lg:col-span-1 lg:w-full' : 'w-full'
-                }`}
+                className={`flex flex-col items-center text-center group cursor-pointer transition-transform duration-500 ease-[0.16,1,0.3,1] hover:-translate-y-2 w-full ${idx === 2 ? 'md:col-span-2 md:w-1/2 md:mx-auto lg:col-span-1 lg:w-full' : 'w-full'
+                  }`}
               >
                 {/* Lifestyle Image Wrapper with Hover Scaling */}
                 <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-lg">
-                  <img 
-                    src={card.image} 
-                    alt={card.title} 
+                  <img
+                    src={card.image}
+                    alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] select-none pointer-events-none"
                   />
                 </div>

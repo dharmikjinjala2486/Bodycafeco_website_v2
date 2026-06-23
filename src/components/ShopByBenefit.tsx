@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronDown } from 'lucide-react';
 import { products } from '../data/products';
@@ -38,8 +39,9 @@ const BenefitProductCard: React.FC<BenefitProductCardProps> = ({ product }) => {
   }, [product]);
 
   return (
-    <div 
-      className="w-full flex flex-col justify-between items-center bg-[#FFFFFF] p-6 md:p-8 rounded-none border border-transparent transition-all duration-300 group h-full text-left"
+    <Link 
+      to={`/product/${product.slug}`}
+      className="w-full flex flex-col justify-between items-center bg-[#FFFFFF] p-6 md:p-8 rounded-none border border-transparent transition-all duration-300 group h-full text-left block"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -102,6 +104,10 @@ const BenefitProductCard: React.FC<BenefitProductCardProps> = ({ product }) => {
                 const variant = product.variants.find(v => v.id === e.target.value);
                 if (variant) setSelectedVariant(variant);
               }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+              }}
               className="w-full bg-white border border-[#E5E5E5] px-4 py-2.5 rounded-lg text-xs md:text-sm text-text-dark font-medium tracking-wide focus:outline-none focus:border-text-dark transition-colors appearance-none cursor-pointer pr-10"
             >
               {product.variants.map((v) => (
@@ -117,14 +123,18 @@ const BenefitProductCard: React.FC<BenefitProductCardProps> = ({ product }) => {
 
           {/* Add to Cart Button */}
           <button
-            onClick={() => addToCart(product, selectedVariant, 1, 'one-time')}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              addToCart(product, selectedVariant, 1, 'one-time');
+            }}
             className="w-full bg-[#B51E2E] hover:bg-[#911623] text-white py-3 px-6 rounded-lg text-xs md:text-sm font-semibold tracking-superwide uppercase transition-colors duration-300 shadow-sm"
           >
             Add to Cart
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
